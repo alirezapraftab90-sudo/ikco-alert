@@ -1,7 +1,8 @@
 name: IKCO Monitor
 
-"on":
+on:
   workflow_dispatch:
+
   schedule:
     - cron: "*/5 * * * *"
 
@@ -10,19 +11,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Python setup
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install requirements
-        run: pip install -r requirements.txt
+      - name: Install packages
+        run: |
+          pip install -r requirements.txt
 
-      - name: Run checker
+      - name: Run script
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
-        run: python check.py
+        run: |
+          python check.py
