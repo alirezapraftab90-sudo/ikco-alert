@@ -39,7 +39,6 @@ def get_page_hash():
 
 
 def main():
-    send_message("✅ تست ربات ایران خودرو موفق بود")
 
     new_hash = get_page_hash()
 
