@@ -3,29 +3,9 @@ name: IKCO Monitor
 on:
   workflow_dispatch:
 
-  schedule:
-    - cron: "*/5 * * * *"
-
 jobs:
-  check:
+  test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Python setup
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install packages
-        run: |
-          pip install -r requirements.txt
-
-      - name: Run script
-        env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          CHAT_ID: ${{ secrets.CHAT_ID }}
-        run: |
-          python check.py
+      - name: Test
+        run: echo "Workflow is working"
