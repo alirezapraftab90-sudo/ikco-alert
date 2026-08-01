@@ -1,11 +1,11 @@
 name: IKCO Monitor
 
-on:
-  workflow_dispatch:
+"on":
+  workflow_dispatch: {}
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Test
-        run: echo "Workflow is working"
+      - name: Test workflow
+        run: echo "Workflow works"
